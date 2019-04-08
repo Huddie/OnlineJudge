@@ -201,6 +201,7 @@ class Program:
 
 
 def send_email(status, email):
+    print(os.environ.get('SENDGRID_API_KEY'))
     message = Mail(
         from_email='easports96@gmail.com',
         to_emails=email,
