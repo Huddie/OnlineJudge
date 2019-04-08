@@ -1,4 +1,4 @@
-import os, sys, filecmp, re, subprocess, os.path, uuid
+import os, sys, filecmp, re, subprocess, os.path, uuid, argparse, smtplib
 from subprocess import CalledProcessError, TimeoutExpired
 
 status_codes = {
@@ -199,21 +199,46 @@ class Program:
             print(e.output)
 
 
-prg = Program("add.cpp", "100")
+# def send_email(status):
+#     sender = 'from@fromdomain.com'
+#     receivers = ['to@todomain.com']
 
-com_res = prg.compile()
-ErrorHandler.process_status(com_res[0])
+#     message = """From: From Person <from@fromdomain.com>
+#     To: To Person <to@todomain.com>
+#     Subject: SMTP e-mail test
 
-result = prg.run_and_test()
-ErrorHandler.process_status(result[0])
+#     This is a test e-mail message.
+#     """
 
-result_mng = ResultManager(result[1], result[2])
-comp_res = result_mng.compare()
+#     try:
+#     smtpObj = smtplib.SMTP('localhost')
+#     smtpObj.sendmail(sender, receivers, message)         
+#     print "Successfully sent email"
+#     except SMTPException:
+#     print "Error: unable to send email"
 
-print(status_codes[comp_res[0]])
+if __name__ == "__main__":
+    args = parse()
+    try:
+        filepath = input("filepath: ") if not args.filepath else args.filepath
+        prg = Program(filepath, "100")
 
-for file in files_to_delete:
-    FileManager.delete_file(file)
+        com_res = prg.compile()
+        ErrorHandler.process_status(com_res[0])
+
+        result = prg.run_and_test()
+        ErrorHandler.process_status(result[0])
+
+        result_mng = ResultManager(result[1], result[2])
+        comp_res = result_mng.compare()
+
+        print(status_codes[comp_res[0]])
+
+        for file in files_to_delete:
+            FileManager.delete_file(file)
+
+    except Exception as e:
+        print(str(e))
 
 
 

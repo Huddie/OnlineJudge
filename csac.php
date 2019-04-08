@@ -13,21 +13,18 @@
 	  		<li><a href="contact.asp">Prizes</a></li>
 		</ul>
 	</center>
-	
 	<center>
 	<div class="sponsor_div">
 		<text class="sponsor_title">Sponsored by:</text><br>
 		<text class="sponsor">Surprise..</text>
 	</div>
 	</center>
-	
-	
 	<center>
- 	<form class="upload-email-wrapper" action="upload.php" method="post" enctype="multipart/form-data">
-		<input type="file" name="fileToUpload" id="fileToUpload"><p></p>
-		<input class="email" type="email" placeholder="Email Address">
-		<input class="btn" type="submit" value="Submit" name="submit">
-	</form>
+    <form class="upload-email-wrapper" action="upload.php" method="post" enctype="multipart/form-data">
+          <input type="file" name="fileToUpload" id="fileToUpload"><p></p>
+          <input class="email" type="email" placeholder="Email Address">
+          <input class="btn" type="submit" value="Submit" name="submit">
+    </form>
 	</center>
 </body>
 </html>
