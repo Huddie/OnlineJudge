@@ -3,7 +3,6 @@
 <head>
   <title>Upload your files</title>
 <link href="csac.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="script.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:700" rel="stylesheet">
  <body>
 	<center>
@@ -20,16 +19,7 @@
 	  <input type="file" name="myfile" />
 	</div>
 	</center>
-<!--
-  	<form enctype="multipart/form-data" action="upload.php" method="POST">
-    	<input type="file" name="uploaded_file"></input><br/>
-    	<input type="submit" value="Upload"></input>
-  	</form>
--->
 </body>
-</html>
-
-
 <?PHP
   if(!empty($_FILES['uploaded_file']))
   {
@@ -43,3 +33,4 @@
     }
   }
 ?>
+</html>
