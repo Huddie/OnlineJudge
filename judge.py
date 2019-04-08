@@ -243,8 +243,8 @@ if __name__ == "__main__":
         send_email(status_codes[comp_res[0]], email)
         print(status_codes[comp_res[0]])
 
-        for file in files_to_delete:
-            FileManager.delete_file(file)
+        # for file in files_to_delete:
+        #     FileManager.delete_file(file)
 
     except Exception as e:
         print(str(e))
