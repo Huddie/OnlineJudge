@@ -15,6 +15,7 @@
         $uploadOk = 0;
     }
         // Allow certain file formats
+    echo $codeFileType;
     if($codeFileType != "cpp" && $codeFileType != "java" && $codeFileType != "py"
        && $codeFileType != "c" ) {
         echo "Sorry, only C, Cpp, Java or Python files are allowed.";
