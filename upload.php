@@ -7,7 +7,7 @@
     $uploadOk = 1;
     $codeFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $cmd = 'python3 judge.py --filepath='.$target_file.' --email='.$_POST["email"].' --problem_code='.$_POST["problem_code"];
-    echo $cmd
+    echo $cmd;
         // Check if file already exists
     if (file_exists($target_file)) {
         echo "Sorry, file already exists.";
@@ -34,9 +34,9 @@
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
             $message = exec($cmd, $arr);
-            echo $message
+            echo $message;
             for ($x = 0; $x < count($arr); $x++) {
-                echo $arr[$x]
+                echo $arr[$x];
             }
         } else {
             echo "Sorry, there was an error uploading your file.";
