@@ -15,9 +15,9 @@
         $uploadOk = 0;
     }
         // Allow certain file formats
-    if($imageFileType != "cpp" && $imageFileType != "java" && $imageFileType != "py"
-       && $imageFileType != "c" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    if($codeFileType != "cpp" && $codeFileType != "java" && $codeFileType != "py"
+       && $codeFileType != "c" ) {
+        echo "Sorry, only C, Cpp, Java or Python files are allowed.";
         $uploadOk = 0;
     }
         // Check if $uploadOk is set to 0 by an error
