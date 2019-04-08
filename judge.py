@@ -227,6 +227,7 @@ def parse():
 if __name__ == "__main__":
     args = parse()
     try:
+        print(args.filepath)
         filepath = input("filepath: ") if not args.filepath else args.filepath
         email = input("email: ") if not args.filepath else args.email
         prg = Program(filepath, "100")
