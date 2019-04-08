@@ -18,18 +18,10 @@
 		 <input class="email" type="email">
 	</div>
 	<br>
- 	<div class="upload-btn-wrapper">
-  	<form action="upload.php" method="post" enctype="multipart/form-data">
-	  	<button class="btn">Upload code</button>
-	  	<input type="file" name="fileToUpload" id="fileToUpload" />
+ 	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="fileToUpload" id="fileToUpload"><br>
+		<input class="btn" type="submit" value="Submit" name="submit">
 	</form>
-	</div>
- 	<br>
-	<div class="upload-btn-wrapper">
-  	<form action="upload.php" method="post" enctype="multipart/form-data">
-	  	<button class="btn">Submit</button>
-	</form>
-	</div>
 	</center>
 </body>
 </html>
