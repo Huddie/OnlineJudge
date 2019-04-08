@@ -1,7 +1,7 @@
 <?php
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    echo  dirname(__DIR__).'/'.$target_file;
+    $target_file = dirname(__DIR__).'/'.$target_file;
     $uploadOk = 1;
     $codeFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -26,6 +26,8 @@
         echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
     } else {
+        echo $_FILES["fileToUpload"]["tmp_name"];
+        echo
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         } else {
