@@ -215,6 +215,15 @@ def send_email(status, email):
     except Exception as e:
         print(e.message)
 
+
+def parse():
+    parser = argparse.ArgumentParser(
+        description='Specify commands for CSAC v1.0')
+    parser.add_argument('--filepath')
+    parser.add_argument('--problem_code')
+    parser.add_argument('--email')
+    return parser.parse_args()
+
 if __name__ == "__main__":
     args = parse()
     try:
