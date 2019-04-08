@@ -14,10 +14,34 @@
 		</ul>
 	</center>
 	<center>
+	<div class="upload-email-wrapper">
+		 <input class="email" type="email">
+	</div>
+	<br>
  	<div class="upload-btn-wrapper">
-	  <button class="btn">Upload code</button>
-	  <input type="file" name="myfile" />
+	  	<button class="btn">Upload code</button>
+	  	<input type="file" name="myfile" />
+	</div>
+ 	<br>
+	<div class="upload-btn-wrapper">
+	  	<button class="btn">Submit</button>
+	  	<input type="file" name="myfile" />
 	</div>
 	</center>
 </body>
 </html>
+
+
+<?PHP
+  if(!empty($_FILES['uploaded_file']))
+  {
+    $path = "uploads/";
+    $path = $path . basename( $_FILES['uploaded_file']['name']);
+    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+      echo "The file ".  basename( $_FILES['uploaded_file']['name']). 
+      " has been uploaded";
+    } else{
+        echo "There was an error uploading the file, please try again!";
+    }
+  }
+?>

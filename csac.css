@@ -4,13 +4,29 @@
 	font-size: 50px;
 }
 
-.upload-btn-wrapper {
+.upload-email-wrapper {
  	margin-top: 100px;
   	position: relative;
   	overflow: hidden;
   	display: inline-block;
 }
 
+.upload-btn-wrapper {
+ 	margin-top: 20px;
+  	position: relative;
+  	overflow: hidden;
+  	display: inline-block;
+}
+
+.email {
+	border: 2px solid black;
+  	color: black;
+  	background-color: white;
+  	padding: 8px 20px;
+  	border-radius: 8px;
+  	font-size: 20px;
+  	font-weight: bold;
+}
 .btn {
   	border: 2px solid black;
   	color: black;
