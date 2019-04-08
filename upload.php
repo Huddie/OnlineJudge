@@ -1,6 +1,8 @@
 <?php
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    echo $target_file;
+    echo  __DIR__;
     $uploadOk = 1;
     $codeFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -15,8 +17,6 @@
         $uploadOk = 0;
     }
         // Allow certain file formats
-    echo "EXT: ". $codeFileType;
-    echo "Files: ". $_FILES;
     if($codeFileType != "cpp" && $codeFileType != "java" && $codeFileType != "py"
        && $codeFileType != "c" ) {
         echo "Sorry, only C, Cpp, Java or Python files are allowed.";

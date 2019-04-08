@@ -15,12 +15,14 @@
 	</center>
 	<center>
 	<div class="upload-email-wrapper">
-		 <input class="email" type="email">
+		 
 	</div>
 	<br>
  	<form action="upload.php" method="post" enctype="multipart/form-data">
-		<input type="file" name="fileToUpload" id="fileToUpload"><br>
+		<input type="file" name="fileToUpload" id="fileToUpload"><p></p>
+		<input class="email" type="email" placeholder="Email Address">
 		<input class="btn" type="submit" value="Submit" name="submit">
+		
 	</form>
 	</center>
 </body>
