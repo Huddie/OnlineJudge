@@ -19,8 +19,10 @@
 	</div>
 	<br>
  	<div class="upload-btn-wrapper">
+  	<form action="upload.php" method="post" enctype="multipart/form-data">
 	  	<button class="btn">Upload code</button>
 	  	<input type="file" name="fileToUpload" id="fileToUpload" />
+	</form>
 	</div>
  	<br>
 	<div class="upload-btn-wrapper">
