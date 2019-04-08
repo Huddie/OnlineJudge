@@ -202,19 +202,15 @@ class Program:
 
 def send_email(status, email):
     message = Mail(
-        from_email='from_email@example.com',
-        to_emails='to@example.com',
-        subject='Sending with Twilio SendGrid is Fun',
-        html_content='<strong>and easy to do anywhere, even with Python</strong>')
+        from_email='easports96@gmail.com',
+        to_emails=email,
+        subject='CSAC 2019 Results',
+        html_content='<strong>{0}</strong>'.format(status))
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
     except Exception as e:
         print(e.message)
-
 
 def parse():
     parser = argparse.ArgumentParser(
@@ -244,8 +240,8 @@ if __name__ == "__main__":
         send_email(status_codes[comp_res[0]], email)
         print(status_codes[comp_res[0]])
 
-        # for file in files_to_delete:
-        #     FileManager.delete_file(file)
+        for file in files_to_delete:
+            FileManager.delete_file(file)
 
     except Exception as e:
         print(str(e))
