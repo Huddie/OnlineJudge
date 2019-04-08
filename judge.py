@@ -1,6 +1,7 @@
 import os, sys, filecmp, re, subprocess, os.path, uuid, argparse, smtplib
 from subprocess import CalledProcessError, TimeoutExpired
-
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 status_codes = {
     200: 'OK',
     201: 'ACCEPTED',
@@ -199,28 +200,26 @@ class Program:
             print(e.output)
 
 
-# def send_email(status):
-#     sender = 'from@fromdomain.com'
-#     receivers = ['to@todomain.com']
-
-#     message = """From: From Person <from@fromdomain.com>
-#     To: To Person <to@todomain.com>
-#     Subject: SMTP e-mail test
-
-#     This is a test e-mail message.
-#     """
-
-#     try:
-#     smtpObj = smtplib.SMTP('localhost')
-#     smtpObj.sendmail(sender, receivers, message)         
-#     print "Successfully sent email"
-#     except SMTPException:
-#     print "Error: unable to send email"
+def send_email(status, email):
+    message = Mail(
+        from_email='easports96@gmail.com',
+        to_emails='adlerehud@gmail.com',
+        subject='Sending with Twilio SendGrid is Fun',
+        html_content='<strong>and easy to do anywhere, even with Python</strong>')
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e.message)
 
 if __name__ == "__main__":
     args = parse()
     try:
         filepath = input("filepath: ") if not args.filepath else args.filepath
+        email = input("email: ") if not args.filepath else args.email
         prg = Program(filepath, "100")
 
         com_res = prg.compile()
@@ -232,6 +231,7 @@ if __name__ == "__main__":
         result_mng = ResultManager(result[1], result[2])
         comp_res = result_mng.compare()
 
+        send_email(status_codes[comp_res[0]], email)
         print(status_codes[comp_res[0]])
 
         for file in files_to_delete:
