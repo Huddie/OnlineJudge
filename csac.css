@@ -4,8 +4,27 @@
 	font-size: 50px;
 }
 
+
+.sponsor_div {
+	margin-top: 20px;
+}
+
+.sponsor_title {
+	color: darkgray;
+	text-align: center;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 20px;
+}
+
+.sponsor {
+	color: darkgray;
+	text-align: center;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 15px;
+}
+
 .upload-email-wrapper {
- 	margin-top: 100px;
+ 	margin-top: 80px;
   	position: relative;
   	overflow: hidden;
   	display: inline-block;
