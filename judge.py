@@ -202,8 +202,8 @@ class Program:
 
 def send_email(status, email):
     message = Mail(
-        from_email='easports96@gmail.com',
-        to_emails='adlerehud@gmail.com',
+        from_email='from_email@example.com',
+        to_emails='to@example.com',
         subject='Sending with Twilio SendGrid is Fun',
         html_content='<strong>and easy to do anywhere, even with Python</strong>')
     try:
