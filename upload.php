@@ -29,6 +29,7 @@
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            echo "\n".$cmd;
             $message = exec($cmd, $arr);
             echo $message;
             for ($x = 0; $x < count($arr); $x++) {
