@@ -199,13 +199,15 @@ class Program:
         except CalledProcessError as e:
             print(e.output)
 
+    
 
 def send_email(status, email):
     message = Mail(
-        from_email='easports96@gmail.com',
+        from_email='ehud.adler62@qmail.cuny.edu',
         to_emails=email,
         subject='CSAC 2019 Results',
         html_content='<strong>{0}</strong>'.format(status))
+        
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
