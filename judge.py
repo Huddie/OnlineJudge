@@ -1,4 +1,4 @@
-import os, sys, filecmp, re, subprocess, os.path, uuid, argparse, smtplib
+import os, sys, filecmp, re, subprocess, os.path, uuid, argparse, smtplib, glob
 from subprocess import CalledProcessError, TimeoutExpired
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
@@ -64,7 +64,9 @@ class FileManager:
 class ProgramManager:
     @staticmethod
     def dirpath_for_program_name(program_name):
-        return f'./{program_name}'
+        files = list(glob.iglob('./**/{0}.problem'.format(program_name), recursive=True))
+        if len(files) > 0:
+            return files[0]
 
     @staticmethod
     def expected_output_filepath(dirpath):
