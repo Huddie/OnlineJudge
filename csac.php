@@ -22,7 +22,7 @@
 	<center>
     <form class="upload-email-wrapper" action="upload.php" method="post" enctype="multipart/form-data">
           <input type="file" name="fileToUpload" id="fileToUpload"><p></p>
-          <input class="email" type="email" placeholder="Email Address">
+          <input class="email" type="email" id="email" name="email" placeholder="Email Address">
           <input class="btn" type="submit" value="Submit" name="submit">
     </form>
 	</center>
