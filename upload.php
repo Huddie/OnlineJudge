@@ -6,9 +6,9 @@
     $target_file = dirname(__DIR__).'/'.$target_file;
     $uploadOk = 1;
     $codeFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    //$cmd = 'python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" 2> /home/fa18/313/adeh6562/public_html/stderr.txt';
-    $cmd = 'echo "hello" >> stderr.txt';
-    exec($cmd, $arr);
+    $account_pass = 23416562;
+    $cmd = 'echo "'.$account_pass.'" | su -c python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" 2> /home/fa18/313/adeh6562/public_html/stderr.txt';
+
     echo $cmd;
         // Check if file already exists
     if (file_exists($target_file)) {
@@ -36,10 +36,6 @@
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "\nThe file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
             exec($cmd, $arr);
-            echo "\nEND";
-            for ($x = 0; $x < count($arr); $x++) {
-                echo $arr[$x];
-            }
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
