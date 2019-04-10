@@ -162,7 +162,7 @@ class Program:
 
     def run_and_test(self):
         run_command = self.attempt.runCommand(self.attempt.filepath, self.attempt.uid)
-        output_file = f'{self.attempt.uid}.txt'
+        output_file = f'{self.attempt.uid}.solution'
         try:
             with open(output_file, 'w+') as fout:
                 fin = None
@@ -192,7 +192,7 @@ class Program:
             else:
                 f1, f2 = None, None
                 with open(self.attempt.expectedOutput, 'r') as file1:
-                    with open(f'{self.attempt.uid}.txt', 'r') as file2:
+                    with open(f'{self.attempt.uid}.solution', 'r') as file2:
                         f1, f2 = file1.read(), file2.read()
                 f1, f2 = f1.strip(), f2.strip()
                 return 200, f1, f2
