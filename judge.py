@@ -483,9 +483,6 @@ def send_email(status, email):
         html_content=get_email(status))
     
     try:
-        print(os.getcwd())
-        print(os.environ.get('SENDGRID_API_KEY'))
-        print(os.environ)
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
     except Exception as e:
