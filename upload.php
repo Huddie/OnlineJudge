@@ -7,7 +7,8 @@
     $uploadOk = 1;
     $codeFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $account_pass = 23416562;
-    $cmd = 'echo "'.$account_pass.'" | su -c python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" 2> /home/fa18/313/adeh6562/public_html/stderr.txt';
+    $mars_user = 'adeh6562';
+    $cmd = 'echo "'.$account_pass.'" | su -c python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" 2> /home/fa18/313/adeh6562/public_html/stderr.txt - '.$mars_user;
 
     echo $cmd;
         // Check if file already exists
