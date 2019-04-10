@@ -481,8 +481,8 @@ def send_email(status, email):
         from_email='ehud.adler62@qmail.cuny.edu',
         to_emails=email,
         subject='CSAC 2019 Results',
-        html_content='<strong>{0}</strong>'.format(status))
-        
+        html_content=email(status))
+    
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
