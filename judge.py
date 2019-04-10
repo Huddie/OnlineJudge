@@ -17,7 +17,8 @@ status_codes = {
 filetypes = {
     'c': "C",
     'cpp': "CPP",
-    'java': "JAVA"
+    'java': "JAVA",
+    'py': "PYTHON"
 }
 
 files_to_delete = []
@@ -124,6 +125,8 @@ class Attempt:
             return f"g++ {os.path.abspath(filepath)} -o {uid}"
         elif self.lang == 'JAVA':
             return f"javac {filepath}"
+        elif self.lang == 'PYTHON':
+            return None
 
     def runCommand(self, filename, uid):
         if self.lang == 'C':
@@ -131,7 +134,9 @@ class Attempt:
         elif self.lang == 'CPP':
             return os.path.abspath(uid)
         elif self.lang == 'JAVA':
-            return fos.path.abspath(f"java {filename}")
+            return os.path.abspath(f"java {filename}")
+        elif self.lang == 'PYTHON':
+            return os.path.abspath(f"python3 {filename}")
 
 class Program:
     def __init__(self, filepath, program_name):
@@ -143,6 +148,9 @@ class Program:
             self.attempt.filepath, 
             self.attempt.uid
         )
+
+        if not compile_command:
+            return 200, None 
 
         try:
             result = subprocess.run(
