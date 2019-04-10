@@ -6,7 +6,8 @@
     $target_file = dirname(__DIR__).'/'.$target_file;
     $uploadOk = 1;
     $codeFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    $cmd = 'python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" 2> /home/fa18/313/adeh6562/public_html/stderr.txt';
+    //$cmd = 'python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" 2> /home/fa18/313/adeh6562/public_html/stderr.txt';
+    $cmd = 'echo "hello" >> stderr.txt';
     echo $cmd;
         // Check if file already exists
     if (file_exists($target_file)) {
