@@ -8,7 +8,7 @@
     $codeFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $account_pass = 23416562;
     $mars_user = 'adeh6562';
-    $cmd = 'echo "'.$account_pass.'" | su -c "python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" - '.$mars_user;
+    $cmd = 'echo "'.$account_pass.'" | su -c "python3 /home/fa18/313/adeh6562/public_html/csac/OnlineJudge/judge.py --filepath="'.$target_file.'" --email="'.$_POST["email"].'" 2> /home/fa18/313/adeh6562/public_html/csac/stderr.txt" - '.$mars_user;
 
         // Check if file already exists
     if (file_exists($target_file)) {
@@ -31,8 +31,6 @@
         echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
     } else {
-        echo $_FILES["fileToUpload"]["tmp_name"];
-        echo $target_file;
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "\nThe file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.\nAn email will be sent to you with your results soon.";
             exec($cmd, $arr);
