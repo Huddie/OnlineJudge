@@ -204,7 +204,7 @@ class Program:
     
 
 
-def email(status):
+def get_email(status):
     return """<!doctype html>
 <html>
     <head>
@@ -472,8 +472,7 @@ a[x-apple-data-detectors] {
       </tr>
     </table>
 </body>
-</html>
-""".format(status)
+</html>""".format(status)
 
 
 def send_email(status, email):
@@ -481,7 +480,7 @@ def send_email(status, email):
         from_email='ehud.adler62@qmail.cuny.edu',
         to_emails=email,
         subject='CSAC 2019 Results',
-        html_content=email(status))
+        html_content=get_email(status))
     
     try:
         print(os.getcwd())
